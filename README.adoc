@@ -1,0 +1,71 @@
+# openshift-oc-commands
+
+This projects is used for Openshift oc client documentation
+
+## Download and documentation
+
+link:https://docs.openshift.com/enterprise/3.1/cli_reference/get_started_cli.html[Get Started with the CLI]
+
+link:https://access.redhat.com/downloads/content/290[Download the CLI]
+
+## Commands
+
+### login 
+
+  oc login paas:8443 --username=xxxx --password=xxxxx
+  
+### logout 
+
+  oc logout
+  
+### Port-forward to use a service out form Openshift
+
+  oc port-forward redis-1-czwwj 6379:6379
+  oc port-forward mysql-1-deploy 3306:3306
+  oc port-forward mysql-1-lhvde 3306:3306
+  oc port-forward -p mongodb-1-leoo4 27017:27017
+
+### Add template, delete template
+
+  oc create -f template.yaml (recommended)
+  oc create -f template.json
+
+  oc delete -f template.yaml (teplate must have the same tag name)
+
+### Add Permissions
+
+  oc policy add-role-to-user admin XXXXX -n project-dev
+
+### See Permissions
+
+  oc describe policyBindings :default -n project-dev
+
+### Delete all for applications
+
+  oc delete all -l app_name=applicationName
+
+  Usage:
+    oc delete ([-f FILENAME] | TYPE [(NAME | -l label | --all)]) [options]
+
+Examples:
+  # Delete a pod using the type and ID specified in pod.json.
+  $ oc delete -f pod.json
+
+  # Delete a pod based on the type and ID in the JSON passed into stdin.
+  $ cat pod.json | oc delete -f -
+
+  # Delete pods and services with label name=myLabel.
+  $ oc delete pods,services -l name=myLabel
+
+  # Delete a pod with ID 1234-56-7890-234234-456456.
+  $ oc delete pod 1234-56-7890-234234-456456
+
+  # Delete all pods
+  
+### Add env variables to pod
+
+  oc env pod mongodb-1-leoo4 SPRING_DATA_MONGODB_URI=mongodb://admin:admin@mongodb:27017/sampledb
+  
+### Edit config service
+
+  oc edit dc config-service
