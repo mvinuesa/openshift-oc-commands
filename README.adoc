@@ -25,6 +25,32 @@ link:https://access.redhat.com/downloads/content/290[Download the CLI]
   oc port-forward mysql-1-lhvde 3306:3306
   oc port-forward -p mongodb-1-leoo4 27017:27017
 
+### Get, to get information from pods, services, replication controllers,....
+
+  oc get pods
+  oc get services
+  oc get rc
+  
+  Examples:
+  # List all pods in ps output format.
+  $ oc get pods
+
+  # List a single replication controller with specified ID in ps output format.
+  $ oc get rc redis
+
+  # List all pods and show more details about them.
+  $ oc get -o wide pods
+
+  # List a single pod in JSON output format.
+  $ oc get -o json pod redis-pod
+
+  # Return only the status value of the specified pod.
+  $ oc get -o template pod redis-pod --template={{.currentState.status}}
+
+### logs, to see logs from pod
+
+  oc logs mypod
+  
 ### Add template, delete template
 
   oc create -f template.yaml (recommended)
