@@ -46,6 +46,21 @@ link:https://access.redhat.com/downloads/content/290[Download the CLI]
 
   # Return only the status value of the specified pod.
   $ oc get -o template pod redis-pod --template={{.currentState.status}}
+  
+### Rsh, itneractive shell inside the pod
+
+  $ oc rsh %podname
+  
+### New-app, add new service
+
+  # Return only the status value of the specified pod.
+  $ oc new-app -L
+  
+  # add new service
+  $ oc new-app mysql
+  
+  # add new service
+  oc new-app --name=myapp --template=javase -p param1=value1
 
 ### logs, to see logs from pod
 
