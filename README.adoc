@@ -103,6 +103,10 @@ Examples:
 
   # Delete all pods
   
+### Delete pod with force option
+
+  oc delete pod postgresql-1-0chsf --grace-period=0
+  
 ### Add env variables to pod
 
   oc env pod mongodb-1-leoo4 SPRING_DATA_MONGODB_URI=mongodb://admin:admin@mongodb:27017/sampledb
