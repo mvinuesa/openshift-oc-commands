@@ -18,6 +18,14 @@ link:https://access.redhat.com/downloads/content/290[Download the CLI]
 
   oc logout
   
+### See Projects
+
+  oc projects
+  
+### Change Projects
+
+  oc project project-name
+  
 ### Port-forward to use a service out form Openshift
 
   oc port-forward redis-1-czwwj 6379:6379
@@ -75,11 +83,16 @@ link:https://access.redhat.com/downloads/content/290[Download the CLI]
 
 ### Add Permissions
 
-  oc policy add-role-to-user admin XXXXX -n project-dev
+  oc policy add-role-to-user admin XXXXX -n project
 
 ### See Permissions
 
-  oc describe policyBindings :default -n project-dev
+  oc describe policyBindings :default -n project
+  
+### Delete user/users
+
+  oc policy remove-user user
+  oc policy remove-user user user1
 
 ### Delete all for applications
 
