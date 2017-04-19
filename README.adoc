@@ -18,9 +18,13 @@ link:https://access.redhat.com/downloads/content/290[Download the CLI]
 
   oc logout
   
-### See Projects
+### See default Project
 
-  oc projects
+  oc project
+  
+### See all Projects
+
+  oc get projects
   
 ### Change Projects
 
